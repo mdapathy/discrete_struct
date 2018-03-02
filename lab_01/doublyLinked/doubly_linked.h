@@ -18,9 +18,9 @@ public:
   Doubly_linked();
   ~Doubly_linked();
   
-  int get_size(void);
-  int get_tail(void);
-  int get_head(void);
+  int get_size();
+  int get_tail();
+  int get_head();
 
   int *display();
   
