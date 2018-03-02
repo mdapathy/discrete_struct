@@ -11,11 +11,11 @@ Singly_linked::Singly_linked():
 Singly_linked::~Singly_linked()
 {
   Node *current = head;
-  while(head != nullptr)
+  while(current != nullptr)
   {
-    Node *tmp = head->next;
-    delete head;
-    head = tmp;
+    Node *tmp = current->next;
+    delete current;
+    current = tmp;
   }
 }
 
@@ -205,12 +205,11 @@ void Singly_linked::insert(int data, int position)
 void Singly_linked::clear()
 {
   Node *current = head;
-
-  while(head != nullptr)
+  while(current != nullptr)
   {
-    Node *tmp = head->next;
-    delete head;
-    head = tmp;
+    Node *tmp = current->next;
+    delete current;
+    current = tmp;
   }
 
   size = 0;
