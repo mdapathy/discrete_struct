@@ -11,11 +11,11 @@ Doubly_linked::Doubly_linked():
 Doubly_linked::~Doubly_linked()
 {
   Node *current = head;
-  while(head != nullptr)
+  while(current != nullptr)
   {
-    Node *tmp = head->next;
-    delete head;
-    head = tmp;
+    Node *tmp = current->next;
+    delete current;
+    current = tmp;
   }
 
 }
@@ -222,11 +222,10 @@ void Doubly_linked::insert(int data, int position)
 void Doubly_linked::clear()
 {
   Node *current = head;
-  while(head != nullptr)
+  while(current != nullptr)
   {
-    Node *tmp = head->next;
-    delete head;
-    head = tmp;
+    Node *tmp = current->next;
+    delete current;
+    current = tmp;
   }
-  size = 0;
 }
