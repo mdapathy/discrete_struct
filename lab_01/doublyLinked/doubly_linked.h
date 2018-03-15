@@ -9,7 +9,7 @@ private:
     int data;
     Node *prev;
     Node *next;
-  }
+  };
   
   Node *head;
   Node *tail;
