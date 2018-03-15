@@ -10,14 +10,7 @@ Doubly_linked::Doubly_linked():
 
 Doubly_linked::~Doubly_linked()
 {
-  Node *current = head;
-  while(current != nullptr)
-  {
-    Node *tmp = current->next;
-    delete current;
-    current = tmp;
-  }
-
+  clear();
 }
 
 int Doubly_linked::get_size()
