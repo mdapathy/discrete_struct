@@ -2,14 +2,15 @@ using namespace std;
 
 class Doubly_linked 
 { 
+private:
+  
   struct Node
   {
     int data;
     Node *prev;
     Node *next;
-  };
-
-private:
+  }
+  
   Node *head;
   Node *tail;
   int size;
