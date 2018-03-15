@@ -2,13 +2,14 @@ using namespace std;
 
 class Singly_linked 
 {
+private:
+  
   struct Node
   {
     int data;
     Node *next;
   };
-
-private:
+  
   Node *head;
   Node *tail;
   int size;
