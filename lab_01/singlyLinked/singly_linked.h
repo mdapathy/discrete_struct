@@ -17,12 +17,16 @@ private:
 public:
   Singly_linked();
   ~Singly_linked();
-  
-  int get_size(void);
+
   int get_tail(void);
   int get_head(void);
 
-  int *display();
+  int get_size()
+  {
+    return size;
+  }
+  
+  string to_string(); 
   
   void push(int data);
   void insert(int data, int position);

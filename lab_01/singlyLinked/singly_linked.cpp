@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <string>
 #include "singly_linked.h"
 using namespace std;
 
@@ -17,11 +18,6 @@ Singly_linked::~Singly_linked()
     delete current;
     current = tmp;
   }
-}
-
-int Singly_linked::get_size()
-{
-  return size;
 }
 
 int Singly_linked::get_tail()
@@ -44,23 +40,26 @@ int Singly_linked::get_head()
   return head->data ;
 }
 
-int* Singly_linked::display()
+
+string Singly_linked::to_string()
 {
   if(size == 0)
   {
-    throw invalid_argument("Nothing to show.");
+    throw invalid_argument("An empty list");
   }
 
-  int *array = new int[size]; 
-  Node *tmp = head;
+  Node* temp = head;
+  string list = "";
 
-  for (int i = 0; i < size; i++)
+  for(int i = 0; i < size; i++)
   { 
-    array[i] = tmp->data;
-    tmp = tmp->next;
+    list += std::to_string(temp->data) + " ";
+    temp = temp->next;
   }
 
-  return array;
+  list.pop_back(); 
+
+  return list;
 }
 
 void Singly_linked::push(int data)
