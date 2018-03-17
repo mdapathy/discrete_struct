@@ -4,10 +4,12 @@
 #include "doubly_linked.h"
 using namespace std;
 
-Doubly_linked list;
-Doubly_linked list1;
+Doubly_linked list,
+              list1,
+              list2,
+              list3; 
 
-TEST_CASE("Properties of a new list")
+TEST_CASE("Properties of a new list: size, head, tail")
 {
 	CHECK(list.get_size() == 0);
 	REQUIRE_THROWS(list.get_head());
@@ -25,12 +27,12 @@ TEST_CASE("Push: empty and nonempty list") // check whether the properties are u
         CHECK(list.get_head() == 6 );
 	CHECK(list.get_tail() == 7 );
 
-	list.clear();
+	REQUIRE_NOTHROW(list.clear());
 
 }
 
 
-TEST_CASE("Push 0 in an empty list") 
+TEST_CASE("Push 0 in an empty list ") // check if 0 is treated as a usual number
 {
 	REQUIRE_NOTHROW(list1.push(0));
 
@@ -43,14 +45,16 @@ TEST_CASE("Push 0 in an empty list")
 TEST_SUITE_BEGIN("Removing");
 
 TEST_CASE("Removing: exceptions") 
-{
-        CHECK_THROWS(list.remove(0)); // list is  empty 
-	CHECK_THROWS(list.remove(3));
+{    
+	CHECK(list.get_size() == 0);
+
+    CHECK_THROWS(list.remove(0)); // list is  empty 
+	CHECK_THROWS(list.remove(-2));
 	CHECK_THROWS(list1.remove( list1.get_size() + 1 ) );
 
 }
 
-TEST_CASE("Removing: list with one obj") 
+TEST_CASE("Removing: list with one obj") // updating head and tail 
 {
         REQUIRE_NOTHROW(list1.remove(0));
 
@@ -74,11 +78,9 @@ TEST_CASE("Removing: tail")
 
 TEST_CASE("Removing: head")
 {
-	list1.push(2);
-
 	REQUIRE_NOTHROW(list1.remove(0));
 
-	CHECK(list1.get_head() == 2);
+	CHECK(list1.get_size() == 0);
 
 }
 
@@ -87,7 +89,7 @@ TEST_SUITE_END();
 
 TEST_SUITE_BEGIN("Insertion");
 
-TEST_CASE("Insertion: exceptions")
+TEST_CASE("Insertion: exceptions") 
 { 
 	CHECK_THROWS(list1.insert(3, -1));
 	CHECK_THROWS(list1.insert(4, 20));
@@ -96,38 +98,37 @@ TEST_CASE("Insertion: exceptions")
 
 TEST_CASE("Insertion: empty list")
 {
-        list.clear();
-
-	REQUIRE_NOTHROW(list.insert(1, 0));
-
-	CHECK(list.get_head() == 1 );
-	CHECK(list.get_tail() == 1);
+    CHECK(list2.get_size() == 0);
+	REQUIRE_NOTHROW(list2.insert(1, 0));
+    CHECK(list2.get_size() == 1);
+	CHECK(list2.get_head() == 1 );
+	CHECK(list2.get_tail() == 1);
 
 
 };
 
+
 TEST_CASE("Insertion: head")
 {
-	REQUIRE_NOTHROW(list.insert(0, 0));
-        CHECK(list.get_head() == 0 );
+	REQUIRE_NOTHROW(list2.insert(0, 0));
+        CHECK(list2.get_head() == 0 );
 
 };
 
 TEST_CASE("Insertion: tail")
 {
-	REQUIRE_NOTHROW(list.insert(2, 2));
-	CHECK(list.get_tail() == 2 );;
+	REQUIRE_NOTHROW(list2.insert(2, 2));
+	CHECK(list2.get_tail() == 2 );;
 
 };
 
 TEST_SUITE_END();
 
 
-TEST_CASE("Display: empty list")
+TEST_CASE("Turning list into string") // throwing exception is the list is empty 
 {
-	list1.clear();
-	CHECK_THROWS(list1.display());
-
+	REQUIRE_THROWS(list3.to_string());
+	CHECK(list2.to_string() == "0 1 2");
 };
 
 TEST_CASE("Delete every third: empty list")
@@ -136,12 +137,17 @@ TEST_CASE("Delete every third: empty list")
 
 };
 
-TEST_CASE("Delete every third: tail") // list :[ 0, 1, 2 ]
+TEST_CASE("Delete every third: tail") 
 {
-	CHECK(list.get_size() == 3);
 
-	REQUIRE_NOTHROW(list.delete_every_third());
+	REQUIRE_NOTHROW(list3.push(1));
+	REQUIRE_NOTHROW(list3.push(2));
+	REQUIRE_NOTHROW(list3.push(3));
+	
+	CHECK(list3.get_size() == 3);
 
-	CHECK(list.get_tail() == 1);
+    REQUIRE_NOTHROW(list3.delete_every_third());
+
+    CHECK(list2.get_tail() == 2);
 
 };

@@ -19,11 +19,15 @@ public:
   Doubly_linked();
   ~Doubly_linked();
   
-  int get_size();
   int get_tail();
   int get_head();
 
-  int *display();
+  int get_size()
+  {
+    return size;
+  }
+
+  string to_string(); 
   
   void push(int data);
   void insert(int data, int position);

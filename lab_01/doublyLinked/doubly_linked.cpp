@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <string>
 #include"doubly_linked.h"
 using namespace std;
 
@@ -11,11 +12,6 @@ Doubly_linked::Doubly_linked():
 Doubly_linked::~Doubly_linked()
 {
   clear();
-}
-
-int Doubly_linked::get_size()
-{
-  return size;
 }
 
 int Doubly_linked::get_tail()
@@ -37,6 +33,29 @@ int Doubly_linked::get_head()
   }
   
   return head->data ;
+
+}
+
+
+string Doubly_linked::to_string()
+{
+  if(size == 0)
+  {
+    throw invalid_argument("An empty list");
+  }
+
+  Node* temp = head;
+  string list = "";
+
+  for(int i = 0; i < size; i++)
+  { 
+    list += std::to_string(temp->data) + " ";
+    temp = temp->next;
+  }
+
+  list.pop_back(); 
+
+  return list;
 
 }
 
@@ -142,26 +161,6 @@ void Doubly_linked::remove(int position)
   delete tmp;  
 }
 
-
-int* Doubly_linked::display() // returns a pointer to  the first element 
-{
-  if(size == 0)
-  {
-    throw invalid_argument("Nothing to show.");
-  }
-
-  int *array = new int[size];
-  Node *tmp = head;
-  
-  for (int i = 0; i < size; i++)
-  { 
-    array[i] = tmp->data;
-    tmp = tmp->next;
-  }
-
-  return array;
-}
-
 void Doubly_linked::insert(int data, int position)
 {
   if( position > size || position < 0)
@@ -220,5 +219,6 @@ void Doubly_linked::clear()
     Node *tmp = current->next;
     delete current;
     current = tmp;
+    size--;
   }
 }
