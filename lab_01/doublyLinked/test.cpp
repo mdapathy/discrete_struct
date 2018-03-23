@@ -47,7 +47,7 @@ TEST_CASE("Removing: exceptions")
 {    
 	CHECK(list.get_size() == 0);
 
-    CHECK_THROWS(list.remove(0)); // list is  empty 
+        CHECK_THROWS(list.remove(0)); // list is  empty 
 	CHECK_THROWS(list.remove(-2));
 	CHECK_THROWS(list1.remove( list1.get_size() + 1 ) );
 
@@ -97,9 +97,9 @@ TEST_CASE("Insertion: exceptions")
 
 TEST_CASE("Insertion: empty list")
 {
-    CHECK(list2.get_size() == 0);
+        CHECK(list2.get_size() == 0);
 	REQUIRE_NOTHROW(list2.insert(1, 0));
-    CHECK(list2.get_size() == 1);
+        CHECK(list2.get_size() == 1);
 	CHECK(list2.get_head() == 1 );
 	CHECK(list2.get_tail() == 1);
 
@@ -145,8 +145,8 @@ TEST_CASE("Delete every third: tail")
 	
 	CHECK(list3.get_size() == 3);
 
-    REQUIRE_NOTHROW(list3.delete_every_third());
+        REQUIRE_NOTHROW(list3.delete_every_third());
 
-    CHECK(list2.get_tail() == 2);
+        CHECK(list2.get_tail() == 2);
 
 };
