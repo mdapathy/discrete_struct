@@ -16,7 +16,7 @@ int main(void)
   	cin >> object;
   	list.push(object);
   }
-  
+
   cout << list.to_string() << endl;
   cout << "Size before the deletion: " << list.get_size() << endl ;
 

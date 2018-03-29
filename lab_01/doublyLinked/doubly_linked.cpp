@@ -14,34 +14,11 @@ Doubly_linked::~Doubly_linked()
   clear();
 }
 
-int Doubly_linked::get_tail()
-{
-  if (tail == nullptr )
-  {
-    throw ("An empty list");
-  } 
-
-  return tail->data ;
-
-}
-
-int Doubly_linked::get_head()
-{
-  if (head == nullptr ) 
-  {
-    throw ("An empty list");
-  }
-  
-  return head->data ;
-
-}
-
-
 string Doubly_linked::to_string()
 {
   if(size == 0)
   {
-    throw invalid_argument("An empty list");
+    throw length_error("Turning an empty list into string "); 
   }
 
   Node* temp = head;
@@ -86,7 +63,7 @@ void Doubly_linked::delete_every_third()
 
   if(inuse == nullptr)
   {
-    throw invalid_argument("An empty list.");
+    throw length_error("Deleting every third element from an empty list"); 
   }
 
   for(int counter = 1; inuse->next != nullptr; counter++)
@@ -120,7 +97,7 @@ void Doubly_linked::remove(int position)
 
   if(size == 0 || position >= size || position < 0)
   {
-    throw invalid_argument("Not possible to execute");
+    throw length_error("Removing elements with non-existing positions from a list");
   }
 
   Node *tmp = head;
@@ -165,7 +142,7 @@ void Doubly_linked::insert(int data, int position)
 {
   if( position > size || position < 0)
   {
-    throw invalid_argument("Impossible to execute.");
+    throw length_error("Accessing non-existing objects during insertion"); 
   }
 
   Node *object = new Node();
