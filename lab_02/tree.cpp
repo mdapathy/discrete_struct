@@ -46,8 +46,8 @@ void Tree::push(int data)
 	
 	if(!root)
 	{
-      root = new Node(data);
-      return;
+		root = new Node(data);
+      		return;
 	}
 
 
@@ -91,17 +91,18 @@ void to_array_helper(Node* element, int current, Node* tree[])
   
 	if (element->value)
 	{
-       tree[temp] = element;
-
-	    if (element->left)
-	    {
-	       to_array_helper(element->left, current*2+1, tree);
-	    }
-	    if (element->right)
-	    {
-	        to_array_helper(element->right,current*2+2, tree);
-	    }
-    }
+		tree[temp] = element;
+		
+		if (element->left)
+		{
+			to_array_helper(element->left, current*2+1, tree);
+		}
+		
+		if (element->right)
+		{
+			to_array_helper(element->right,current*2+2, tree);
+		}
+	}
 }
 
 
@@ -116,18 +117,19 @@ int find_max_leaf_helper(Node* elem)
 	
 	if(elem->left)
 	{
-   	   tmp = max(tmp, find_max_leaf_helper(elem->left));
+   	   	tmp = max(tmp, find_max_leaf_helper(elem->left));
 	}
 
 	if(elem->right)
 	{
-    	tmp = max(tmp, find_max_leaf_helper(elem->right));
+    		tmp = max(tmp, find_max_leaf_helper(elem->right));
 	}
 
 	if(!(elem->right) && !(elem->left))
 	{
 		return elem->value;
 	}
+	
 	return tmp;
 }
 
@@ -137,7 +139,7 @@ int Tree::find_max_leaf()
   {
   	throw out_of_range("Finding minimum leaf in an empty tree");
   }
-  find_max_leaf_helper(root);
+	find_max_leaf_helper(root);
 }
 
 int find_min_leaf_helper(Node* elem)
@@ -146,12 +148,12 @@ int find_min_leaf_helper(Node* elem)
 	
 	if(elem->left)
 	{
-   	   tmp = min(tmp, find_min_leaf_helper(elem->left));
+		tmp = min(tmp, find_min_leaf_helper(elem->left));
 	}
 
 	if(elem->right)
 	{
-    	tmp = min(tmp, find_min_leaf_helper(elem->right));
+		tmp = min(tmp, find_min_leaf_helper(elem->right));
 	}
 
 	if(!(elem->right) && !(elem->left))
@@ -176,7 +178,7 @@ bool find(Node* elem, int key)
     if (key < elem->value && elem->left)
     {
     	return find(elem->left, key);
-	}
+    }
 
     if (key > elem->value && elem->right) 
     {	
@@ -224,17 +226,16 @@ void Tree::delete_element(int key)
 
 	if(current->left && current->right)
 	{
-		
 		Node* tmp = current->right;
-	    prev = current;
-
-	    while (tmp->left != nullptr) 
-	    {
-	      prev = tmp;
-	      tmp = tmp->left;
-	    }
-
-	     current->value = tmp->value;
+		prev = current;
+		
+		while (tmp->left != nullptr) 
+		{
+		      prev = tmp;
+		      tmp = tmp->left;
+		}
+		
+		current->value = tmp->value;
 	    
 
 	    if(!tmp->right) // replaced with a leaf node
@@ -249,9 +250,12 @@ void Tree::delete_element(int key)
 	      	prev->left = tmp->right;
 	    }
 
-	    else prev->right = tmp->right;
-   
-    	delete tmp;
+	    else 
+	    {
+		prev->right = tmp->right;
+		
+	    }
+		delete tmp;
 
 		return;
 	}
@@ -273,8 +277,11 @@ void Tree::delete_element(int key)
 	prev->left = child;
 	
 	}
-	else root = child;
-
+	else 
+	{
+		root = child;
+	}
+	
 	delete current;
 
 }
