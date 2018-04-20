@@ -23,6 +23,16 @@ class Tree
 
     int size;
     Node *root;
+  
+    void push_helper(Node* element, int data);
+    void clear_helper(Node *elem);
+    void to_array_helper(Node* element, int current, Node* tree[]);
+  
+    int find_max_leaf_helper(Node* elem);
+    int find_min_leaf_helper(Node* elem);
+  
+    bool find(Node* elem, int key);
+
 
     public:
       Tree();
