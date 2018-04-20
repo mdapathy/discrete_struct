@@ -9,7 +9,7 @@ size(0), root(nullptr)
 {}
 
 
-void push_helper(Node* element, int data)
+void Tree::push_helper(Node* element, int data)
 {
 	if(element->value == data)
 	{
@@ -55,7 +55,7 @@ void Tree::push(int data)
 
 }
 
-void clear_helper(Node *elem)
+void Tree::clear_helper(Node *elem)
 {
 	if(elem->left)
 	{
@@ -84,7 +84,7 @@ void Tree::clear()
 	size = 0;
 }
 
-void to_array_helper(Node* element, int current, Node* tree[])
+void Tree::to_array_helper(Node* element, int current, Node* tree[])
 {
    int temp = current;
 
@@ -111,7 +111,7 @@ void Tree::to_array(Node* tr[])
 	to_array_helper(root, 0, tr);
 }
 
-int find_max_leaf_helper(Node* elem)
+int Tree::find_max_leaf_helper(Node* elem)
 {
 	int tmp = -9999;
 	
@@ -142,7 +142,7 @@ int Tree::find_max_leaf()
 	find_max_leaf_helper(root);
 }
 
-int find_min_leaf_helper(Node* elem)
+int Tree::find_min_leaf_helper(Node* elem)
 {
 	int tmp = 9999;
 	
@@ -173,7 +173,7 @@ int Tree::find_min_leaf()
   find_min_leaf_helper(root);
 }
 
-bool find(Node* elem, int key)
+bool Tree::find(Node* elem, int key)
 {
     if (key < elem->value && elem->left)
     {
