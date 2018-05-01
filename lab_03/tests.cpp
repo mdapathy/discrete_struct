@@ -12,15 +12,15 @@ TEST_CASE("Graph initialization with amount of vertices")
 	vector<vector<int>> graph = graph1.get_graph();
 
 	for(int i = 0; i < 3; i++)
-    {
-        CHECK(graph[i].size() == 3);
-        
-        for(int j = 0; j < 3; j++)
         {
-            CHECK(graph[i][j] == graph[j][i]);
-            CHECK(graph[i][j] == 0 );
-        };
-    }
+       		CHECK(graph[i].size() == 3);
+        
+       		for(int j = 0; j < 3; j++)
+        	{
+          	  CHECK(graph[i][j] == graph[j][i]);
+           	  CHECK(graph[i][j] == 0 );
+        	};
+   	}
 }
 
 TEST_CASE("Graph initialization with invalid amount of vertices")
@@ -98,11 +98,11 @@ TEST_CASE("Adding vertix")
 	vector<vector<int>> graph = graph1.get_graph();
 
 	for(int i = 0; i < 4; i++)
-    {
-        CHECK(graph[i].size() == 4);
-        CHECK(graph[i][3] == graph[3][i]); // added vertix
-        CHECK(graph[i][3] == 0 );
-    };
+   	{
+        	CHECK(graph[i].size() == 4);
+        	CHECK(graph[i][3] == graph[3][i]); // added vertix
+        	CHECK(graph[i][3] == 0 );
+    	};
 
 };
 
@@ -151,4 +151,3 @@ TEST_CASE("M-numeration")
 	CHECK(num == vector <int> {1, 3, 2, 4});
 
 }
-
