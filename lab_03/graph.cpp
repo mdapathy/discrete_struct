@@ -16,7 +16,7 @@ Graph::Graph(int amount)
 
 Graph::Graph(vector<vector<int>> graph)
 {
-	for(int i = 0; i < graph.size(); i++)
+    for(int i = 0; i < graph.size(); i++)
     {
         if(graph[i].size() != graph.size())
         {
@@ -61,7 +61,7 @@ void Graph::add_vertix()
 
 	for(int i = 0; i < vertices; i++)
 	{
-        adjacence[i].resize(vertices);
+       		adjacence[i].resize(vertices);
 	}
 
 	
@@ -82,6 +82,7 @@ void Graph::delete_edge(int v1, int v2)
 
 
 	adjacence[v1][v2]--;
+	
 	if(v1 != v2) adjacence[v2][v1]--;
 }
 
@@ -94,7 +95,7 @@ vector <int> Graph::m_numeration(int vertix)
 
 	counter = DFS(vertix, used, numeration, counter);
 
-	for (int i = 0; i < vertices; i++)
+    for (int i = 0; i < vertices; i++)
     {
 
         if(used[i] == false)
@@ -109,7 +110,7 @@ vector <int> Graph::m_numeration(int vertix)
 
 int Graph::DFS(int pos, vector <bool>& used, vector <int>& numeration, int counter)
 {
-	int count = counter;
+    int count = counter;
     used[pos] = true;
 
     if(numeration[pos] == 0)  numeration[pos] = count;
@@ -117,12 +118,11 @@ int Graph::DFS(int pos, vector <bool>& used, vector <int>& numeration, int count
     for(int i = 0 ; i < vertices; ++i)
     {
        
-        if (used[i] == 0 && adjacence[pos][i])
+        if ( adjacence[pos][i] && used[i] == 0)
         {
             DFS(i, used, numeration, ++count);
         }
     }
-
-   
+	
     return ++count;
 }        
