@@ -61,7 +61,7 @@ void Graph::add_vertix()
 
 	for(int i = 0; i < vertices; i++)
 	{
-        adjacence[i].resize(vertices);
+        	adjacence[i].resize(vertices);
 	}
 
 	
@@ -95,13 +95,13 @@ vector <int> Graph::m_numeration(int vertix)
 	counter = DFS(vertix, used, numeration, counter);
 
 	for (int i = 0; i < vertices; i++)
-    {
+  	{
 
-        if(used[i] == false)
-        {
-            DFS(i, used, numeration, counter);
-        }
-    }
+       		 if(used[i] == false)
+       		 {
+          	 	 DFS(i, used, numeration, counter);
+        	}
+   	}
 
 	return numeration;
 
@@ -109,7 +109,7 @@ vector <int> Graph::m_numeration(int vertix)
 
 int Graph::DFS(int pos, vector <bool>& used, vector <int>& numeration, int counter)
 {
-	int count = counter;
+    int count = counter;
     used[pos] = true;
 
     if(numeration[pos] == 0)  numeration[pos] = count;
