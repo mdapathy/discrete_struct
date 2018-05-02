@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include <stdexcept>
 #include "graph.h"
 using namespace std;
@@ -61,7 +62,7 @@ void Graph::add_vertix()
 
 	for(int i = 0; i < vertices; i++)
 	{
-        	adjacence[i].resize(vertices);
+        adjacence[i].resize(vertices);
 	}
 
 	
@@ -90,29 +91,26 @@ vector <int> Graph::m_numeration(int vertix)
 {
 	vector <int> numeration(vertices);
 	vector<bool> used(vertices);
-	int counter = 1;
-
-	counter = DFS(vertix, used, numeration, counter);
+	int counter = 0;
 
 	for (int i = 0; i < vertices; i++)
-  	{
+    {
 
-       		 if(used[i] == false)
-       		 {
-          	 	 DFS(i, used, numeration, counter);
-        	}
-   	}
+        if(used[i] == false)
+        {
+            DFS(i, used, numeration, counter);
+        }
+    }
 
 	return numeration;
 
 }
 
-int Graph::DFS(int pos, vector <bool>& used, vector <int>& numeration, int counter)
+void Graph::DFS(int pos, vector <bool>& used, vector <int>& numeration, int& counter)
 {
-    int count = counter;
     used[pos] = true;
 
-    if(numeration[pos] == 0)  numeration[pos] = count;
+    if(numeration[pos] == 0)   numeration[pos] = ++counter;
     
     int it  = 0;
 
@@ -121,10 +119,9 @@ int Graph::DFS(int pos, vector <bool>& used, vector <int>& numeration, int count
        
         if (*i && used[it] == 0 )
         {
-            DFS(it, used, numeration, ++count);
+            DFS(it, used, numeration, counter);
         }
     }
 
-   
-    return ++count;
+
 }        

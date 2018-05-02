@@ -7,7 +7,7 @@ private:
 
 	vector<vector<int>> adjacence ;
 	int vertices;
-	int DFS(int, vector <bool>&, vector <int>&, int);
+	void DFS(int, vector <bool>&, vector <int>&, int&);
 
 public:
 	Graph(int);
