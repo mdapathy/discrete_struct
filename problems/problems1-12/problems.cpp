@@ -7,7 +7,7 @@ using namespace std;
 
 Problems::Problems()
 {
-	srand(time(0));
+    srand(time(0));
     for(int i = 0; i < 15; i++)
     {
         tree.push(rand()%199-99);
@@ -136,10 +136,10 @@ vector <int> Problems::problem_6()
             {
                 prime = false;
             }
-        
+        }
         if(prime)
             removed.push_back(tree.delete_element(values[i]));
-    	}
+    	
     }
 
     return removed;
@@ -171,10 +171,10 @@ vector <int> Problems::problem_7()
             {
                 composite = true;
             }
-        
+        }
         if(composite)
             removed.push_back(tree.delete_element(values[i]));
-    	}
+    	
     }
 
     return removed;
@@ -228,7 +228,7 @@ vector <int> Problems::problem_10(int less_than)
 
 	for(int i = 0; i < 15; i++)
 	{
-		int sum = values[i]/10 + values[i]%10;
+		int sum = abs(values[i])/10 + abs(values[i])%10;
 		if (sum < less_than)
 		{
 			removed.push_back(tree.delete_element(values[i]));
@@ -248,7 +248,7 @@ vector <int> Problems::problem_11(int more_than, int less_than)
 
 	for(int i = 0; i < 15; i++)
 	{
-		int sum = values[i]/10 + values[i]%10;
+		int sum = abs(values[i])/10 + abs(values[i])%10;
 		if (sum < less_than && sum > more_than)
 		{
 			removed.push_back(tree.delete_element(values[i]));
@@ -270,7 +270,7 @@ vector <int> Problems::problem_12()
 	{
 		float root = sqrt(abs(values[i]));
 
-		if(root = (int)root)
+		if(root == (int)root)
 		{
 			removed.push_back(tree.delete_element(values[i]));
 		}
