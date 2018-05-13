@@ -7,7 +7,7 @@ using namespace std;
 
 Problems::Problems()
 {
-    srand(time(0));
+	srand(time(0));
     for(int i = 0; i < 15; i++)
     {
         tree.push(rand()%199-99);
