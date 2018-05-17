@@ -7,7 +7,7 @@ using namespace std;
 
 Problems::Problems()
 {
-	srand(time(0));
+    srand(time(0));
     for(int i = 0; i < 15; i++)
     {
         tree.push(rand()%199-99);
@@ -23,8 +23,7 @@ Problems::Problems(vector <int>& values)
 }
 
 Problems::~Problems()
-{
-}
+{}
 
 vector <int> Problems::problem_1(int n)
 {
@@ -118,22 +117,23 @@ vector <int> Problems::problem_6()
 	tree.get_values(values, tree.get_root());
 
 	for(int i = 0; i < 15; i++)
-    {
-        int tmp = values[i];
+ 	{
+        	int tmp = values[i];
 
-        if(tmp < 2)
-        {
-            continue;
-        }
+       	 	if(tmp < 2)
+        	{
+        	    continue;
+        	}
         
-        int root = sqrt(tmp);
+	       	 int root = sqrt(tmp);
 
-        bool prime = true;
+        	bool prime = true;
 
-        for(int i = 2; i <= root; i++)
-        {
-            if(tmp%i == 0)
-            {
+        	for(int i = 2; i <= root; i++)
+        	{
+            		if(tmp%i == 0)
+            	{
+				
                 prime = false;
             }
         }
@@ -147,12 +147,12 @@ vector <int> Problems::problem_6()
 
 vector <int> Problems::problem_7()
 {
-	vector <int> values;
-	vector <int> removed;
+     vector <int> values;
+     vector <int> removed;
 
-	tree.get_values(values, tree.get_root());
+     tree.get_values(values, tree.get_root());
 
-	for(int i = 0; i < 15; i++)
+    for(int i = 0; i < 15; i++)
     {
         int tmp = values[i];
 
