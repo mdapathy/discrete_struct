@@ -7,9 +7,9 @@ using namespace std;
 
 int Hash_Table::hash(string key)
 {
-	long hash = 0;
+    long hash = 0;
 
-	for(int i = 0; i < key.length(); i++)
+    for(int i = 0; i < key.length(); i++)
     {
     	hash = (hash + key[i] + 4);
     }
@@ -196,7 +196,7 @@ void Hash_Table::push(string key, int data)
 
 int Hash_Table::get_data(string key)
 {
-  	Node* current = arr[hash(key)];
+    Node* current = arr[hash(key)];
 
     while(current != nullptr && current->key != key)
     {
@@ -216,7 +216,7 @@ int Hash_Table::get_data(string key)
 bool Hash_Table::get_color(string key)
 {
 
-  	Node* current = arr[hash(key)];
+    Node* current = arr[hash(key)];
 
     while(current != nullptr && current->key!= key)
     {
@@ -253,6 +253,7 @@ void Hash_Table::deletion_fix(Node* node)
                 node2->color = false;
                 node = node->parent;
             }
+		
             else
             {
                 if (node2->right->color == true)
@@ -319,7 +320,7 @@ void Hash_Table::deletion_fix(Node* node)
 
 int Hash_Table::rb_delete(string key)
 {
-	Node* node = arr[hash(key)];
+    Node* node = arr[hash(key)];
 
     while(node != nullptr && node->key != key)
     {
