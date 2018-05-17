@@ -12,7 +12,7 @@ TEST_CASE("Graph initialization with amount of vertices")
 	vector<vector<int>> graph = graph1.get_graph();
 
 	for(int i = 0; i < 3; i++)
-    {
+   	{
         CHECK(graph[i].size() == 3);
         
         for(int j = 0; j < 3; j++)
