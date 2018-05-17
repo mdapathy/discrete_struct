@@ -16,16 +16,16 @@ public:
 		Node* parent;
 
 	    Node(int data = 0, string key = "", Node* parent = nullptr, bool color = false, Node* left = nullptr, Node* right = nullptr ):
-	   	data(data),
-	   	key(key),
+	    data(data),
+	    key(key),
 	    color(color),
 	    left(nullptr),
 	    right(nullptr),
 	    parent(parent)
-	   	{};
+	    {};
 
-	   	~Node()
-	   	{};
+	    ~Node()
+	    {};
 
 	};
 
