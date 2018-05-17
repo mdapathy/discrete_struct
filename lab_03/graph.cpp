@@ -18,7 +18,7 @@ Graph::Graph(int amount)
 Graph::Graph(vector<vector<int>> graph)
 {
 	for(int i = 0; i < graph.size(); i++)
-    {
+   	{
         if(graph[i].size() != graph.size())
         {
              throw invalid_argument("Passed argument is not a square matrix");
@@ -62,7 +62,7 @@ void Graph::add_vertix()
 
 	for(int i = 0; i < vertices; i++)
 	{
-        adjacence[i].resize(vertices);
+       		adjacence[i].resize(vertices);
 	}
 
 	
@@ -94,13 +94,13 @@ vector <int> Graph::m_numeration(int vertix)
 	int counter = 0;
 
 	for (int i = 0; i < vertices; i++)
-    {
+  	{
 
-        if(used[i] == false)
-        {
-            DFS(i, used, numeration, counter);
-        }
-    }
+	        if(used[i] == false)
+        	{
+            		DFS(i, used, numeration, counter);
+        	}
+    	}
 
 	return numeration;
 
