@@ -21,7 +21,7 @@ TEST_CASE("Pushing elements")
 
 TEST_CASE("Getting elements")
 {
-	Hash_Table hash_t;
+    Hash_Table hash_t;
 
     string init = "string";
 
