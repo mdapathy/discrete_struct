@@ -66,7 +66,6 @@ TEST_CASE("5th problem")
 
 TEST_CASE("6th problem")
 {
-	vector <int> universal {-63, -40, -12, -4, -3, -2,  1, 3, 11, 18, 28, 44, 62, 89, 99};
 
 	Problems prol(universal);
 
